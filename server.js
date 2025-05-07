@@ -16,7 +16,7 @@ const cloudinary = require("./utils/cloudinary");
 const app = express();
 app.use(
   cors({
-    origin: "https://frontend-vlxd-production.vercel.app/",
+    origin: "https://frontend-vlxd-production.vercel.app",
     credentials: true,
   })
 );
