@@ -14,7 +14,12 @@ const upload = require("./middleware/upload");
 const cloudinary = require("./utils/cloudinary");
 
 const app = express();
-app.use(cors({ origin: true, credentials: true }));
+app.use(
+  cors({
+    origin: "https://frontend-vlxd-production.vercel.app/",
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(cookieParser());
 
