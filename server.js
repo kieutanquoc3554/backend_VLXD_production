@@ -14,12 +14,21 @@ const upload = require("./middleware/upload");
 const cloudinary = require("./utils/cloudinary");
 
 const app = express();
+const allowedOrigins = ["https://frontend-vlxd-production.vercel.app"];
+
 app.use(
   cors({
-    origin: "https://frontend-vlxd-production.vercel.app",
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
+
 app.use(express.json());
 app.use(cookieParser());
 
